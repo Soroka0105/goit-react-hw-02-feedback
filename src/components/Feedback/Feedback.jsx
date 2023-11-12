@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Statistics } from "components/Statistics/Statistics";
 import { FeedbackOptions } from "components/FeedbackOptions/FeedbackOptions";
 import { Section } from "components/Section/Section";
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 
 
 
