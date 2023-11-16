@@ -12,23 +12,19 @@ export class Feedback extends Component {
         neutral: 0,
         bad: 0
       }
-      options = {
-        good: 'good',
-        neutral: 'neutral',
-        bad: 'bad'
-      }
-    
-      handleGood = evt => {
-        this.setState({good: this.state.good +1})
-      };
+      options = Object.keys(this.state)
+      
 
-      handleNeutral = evt => {
-        this.setState({neutral: this.state.neutral +1})
-         };
 
-        handleBad = evt => {
-            this.setState({bad: this.state.bad +1})
-            };
+
+    handleFeedback = evt =>{
+      const name = evt.target.id
+      this.setState((prevState) => {
+        return {
+        [name]: prevState[name] + 1,
+        };
+    });
+    }
 
             countTotalFeedback = (a, b, c) => {
                 let total = a + b + c
@@ -44,7 +40,7 @@ export class Feedback extends Component {
     render() {
 return <div>
     <Section title = "Leave a feedback">
-    <FeedbackOptions options = {[this.handleGood, this.handleNeutral, this.handleBad]} onLeaveFeedback = {this.options} />
+    <FeedbackOptions options = {this.options} onLeaveFeedback = {this.handleFeedback} />
     </Section>
         <Section title = 'Statistics'>
         <Statistics 
